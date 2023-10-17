@@ -1,35 +1,26 @@
 <?php
+
 // ***********************************
-// 画面用テーブル要素文字列作成
+// 更新処理
 // ***********************************
-function get_table($statement) {
+function update_row( ) {
 
-    $html = "";
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+    global $pdo;
 
-        if ( $row["性別"]  == "男性" ) {
-            $class = "text-primary";
-        }
-        else {
-            $class = "text-danger";
-        }
+    file_put_contents("update.log", print_r($pdo, true) );
 
-        $html .=<<<HTML
-        <tr>
-            <td>{$row["社員コード"]}</td>
-            <td>{$row["氏名"]}</td>
-            <td>{$row["フリガナ"]}</td>
-            <td>{$row["所属"]}</td>
-            <td class="{$class}">{$row["性別"]}</td>
-            <td class="text-end">{$row["給与"]}</td>
-            <td class="text-end">{$row["手当"]}</td>
-            <td>{$row["管理者"]}</td>
-            <td>{$row["生年月日"]}</td>
-        </tr>
-HTML;
+}
 
-    }
+// **************************
+// デバッグ表示
+// **************************
+function debug_print() {
 
-    return $html;
+    print "<pre class=\"m-5\">";
+    print_r( $_GET );
+    print_r( $_POST );
+    print_r( $_SESSION );
+    print_r( $_FILES );
+    print "</pre>";
 
 }

@@ -50,7 +50,7 @@ td,th {
 // ***********************
 // カンマ編集
 // ***********************
-String.prototype.number_format = 
+String.prototype.number_format =
 function (prefix) {
     var num = this.valueOf();
     prefix = prefix || '';
@@ -69,9 +69,9 @@ $(function(){
 
     $("#load_data").on( "click", function(){
         $.ajax({
-                url: "https://lightbox.sakura.ne.jp/demo/json/syain_api1.php",
+                url: "syain.php",
                 cache: false,
-                data: { "name" : "" }
+                data: { "type": "get" }
         })
         .done(function( data, textStatus ){
             console.log( "status:" + textStatus );
@@ -127,7 +127,7 @@ function loadTable( arrayData ) {
                     .addClass("text-end")
                     .appendTo( row_data );
             }
-            else {  
+            else {
                 $("<td></td>")
                     .text( valueOfProperty )
                     .appendTo( row_data );
@@ -163,6 +163,7 @@ function loadTable( arrayData ) {
                             <th class="text-end">給与</th>
                             <th class="text-end">手当</th>
                             <th>管理者</th>
+                            <th>生年月日</th>
                         </tr>
                     </thead>
                     <tbody id="tbl">

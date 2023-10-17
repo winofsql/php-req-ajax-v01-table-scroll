@@ -26,7 +26,7 @@ $server = "localhost";
 $user = "root";
 $dbname = "lightbox";
 $password = '';
-$connect_string = "mysql:host={$host};dbname={$dbname}";
+$connect_string = "mysql:host={$server};dbname={$dbname}";
 
 // グローバル変数
 $pdo = null;
