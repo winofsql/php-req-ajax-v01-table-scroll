@@ -1,6 +1,7 @@
 <?php
 require_once("setting.php");
 
+header( "Access-Control-Allow-Origin: *" );
 header( "Content-Type: application/json; charset=utf-8" );
 
 // データベースに接続する
